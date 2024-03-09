@@ -1,0 +1,63 @@
+<div class="flex space-x-4 items-center w-full">
+    <label class="w-2/6 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-name">
+        Recipe name
+    </label>
+    <input
+            class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
+            id="recipe-name"
+            name="recipeName"
+            placeholder="Recipe name"
+            required
+            type="text"
+            <%= disabled === true ? 'disabled' : '' %>
+            value="<%= (typeof recipe === 'undefined') ? '' : recipe.name %>"/>
+    <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">&nbsp</span>
+</div>
+
+<div class="flex space-x-4 items-center w-full">
+    <label class="w-2/6 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-pressure-a">
+        Differential pressure A area
+    </label>
+    <input
+            class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
+            id="recipe-pressure-a"
+            name="recipePressureA"
+            placeholder="0"
+            required
+            type="number"
+            <%= disabled === true ? 'disabled' : '' %>
+            value="<%= (typeof recipe === 'undefined') ? '' : recipe.minTemp %>"/>
+    <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">Pa</span>
+</div>
+
+<div class="flex space-x-4 items-center w-full">
+    <label class="w-2/6 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-pressure-a">
+        Differential pressure B area
+    </label>
+    <input
+            class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
+            id="recipe-pressure-a"
+            name="recipePressureA"
+            placeholder="0"
+            required
+            type="number"
+            <%= disabled === true ? 'disabled' : '' %>
+            value="<%= (typeof recipe === 'undefined') ? '' : recipe.maxTemp %>"/>
+    <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">Pa</span>
+</div>
+
+<div class="flex space-x-4 items-center w-full">
+    <label class="w-2/6 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-pressure-alarm">
+        Differential pressure alarm
+    </label>
+    <input
+            class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
+            id="recipe-pressure-alarm"
+            name="recipePressureAlarm"
+            placeholder="100"
+            required
+            type="number"
+            <%= disabled === true ? 'disabled' : '' %>
+            value="<%= (typeof recipe === 'undefined') ? '' : recipe.maxPwr %>"/>
+    <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">Pa</span>
+</div>

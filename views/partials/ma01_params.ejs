@@ -1,0 +1,65 @@
+<div class="flex space-x-4 items-center w-full">
+    <label class="w-2/6 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-name">
+        Recipe name
+    </label>
+    <input
+            class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
+            id="recipe-name"
+            name="recipeName"
+            placeholder="Recipe name"
+            required
+            type="text"
+            <%= disabled === true ? 'disabled' : '' %>
+            value="<%= (typeof recipe === 'undefined') ? '' : recipe.name %>"/>
+    <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">&nbsp</span>
+</div>
+
+<div class="flex space-x-4 items-center w-full">
+    <label class="w-2/6 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-min-temp">
+        Temperature lower bound
+    </label>
+
+
+    <input
+            class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
+            id="recipe-min-temp"
+            name="recipeMinTemp"
+            placeholder="0"
+            required
+            type="number"
+            <%= disabled === true ? 'disabled' : '' %>
+            value="<%= (typeof recipe === 'undefined') ? '' : recipe.minTemp %>"/>
+    <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">°C</span>
+</div>
+
+<div class="flex space-x-4 items-center w-full">
+    <label class="w-2/6 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-max-temp">
+        Temperature upper bound
+    </label>
+    <input
+            class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
+            id="recipe-max-temp"
+            name="recipeMaxTemp"
+            placeholder="0"
+            required
+            type="number"
+            <%= disabled === true ? 'disabled' : '' %>
+            value="<%= (typeof recipe === 'undefined') ? '' : recipe.maxTemp %>"/>
+    <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">°C</span>
+</div>
+
+<div class="flex space-x-4 items-center w-full">
+    <label class="w-2/6 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-max-pwr">
+        Max power
+    </label>
+    <input
+            class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
+            id="recipe-max-pwr"
+            name="recipeMaxPwr"
+            placeholder="100"
+            required
+            type="number"
+            <%= disabled === true ? 'disabled' : '' %>
+            value="<%= (typeof recipe === 'undefined') ? '' : recipe.maxPwr %>"/>
+    <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">%</span>
+</div>

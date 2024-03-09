@@ -1,0 +1,14 @@
+<div class="flex flex-row space-x-4 items-center w-full">
+    <label class="w-1/4 text-center block mb-2 text-sm font-medium dark:text-gray-300"
+           for="<%= id %>"> <%= display %> </label>
+    <input
+            class="w-3/4 "
+            id="<%= id %>"
+            name="<%= id %>"
+            placeholder="<%= display %>"
+    <% if(required) { %>
+            required
+            <% } %>
+            type="<%= type %>"/>
+</div>
+

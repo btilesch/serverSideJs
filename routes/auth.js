@@ -1,4 +1,4 @@
-const renderMW = require('../middleware/render');
+const renderMW = require('../middleware/renderMW');
 
 module.exports = function (app) {
   let objectRepository = {};

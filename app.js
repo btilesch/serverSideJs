@@ -16,7 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Creat the .tpl and .error on the res object
 app.use(function (req, res, next) {
   res.tpl = {};
   res.tpl.error = [];

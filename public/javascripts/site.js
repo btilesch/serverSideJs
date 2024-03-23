@@ -19,7 +19,6 @@ function bindRecipeActions() {
  * @param targetState {'hidden' | 'visible'}
  */
 function setActionButtonState(targetState) {
-  console.log('setting: ', targetState);
   if (targetState === 'visible') {
     document.getElementById('recipe-action-delete').classList.remove('hidden');
     document.getElementById('recipe-action-edit').classList.remove('hidden');

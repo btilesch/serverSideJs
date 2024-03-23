@@ -1,4 +1,4 @@
-const renderMW = require('../middleware/render');
+const renderMW = require('../middleware/renderMW');
 
 module.exports = function (app) {
   let objectRepository = {};
@@ -7,9 +7,9 @@ module.exports = function (app) {
     res.redirect('/line');
   });
 
-  app.use('/line/new', renderMW(objectRepository, 'line_edit'));
+  app.use('/line/new', renderMW(objectRepository, 'lineEdit'));
 
-  app.use('/line/edit', renderMW(objectRepository, 'line_edit'));
+  app.use('/line/edit', renderMW(objectRepository, 'lineEdit'));
 
   app.use('/line', renderMW(objectRepository, 'line'));
 };

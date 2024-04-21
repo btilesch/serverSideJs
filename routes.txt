@@ -1,0 +1,148 @@
+# Views
+
+line.ejs - Recept lista, hozzáadás, szerkesztés, törlés és engedélyezés gombok
+lineEdit.ejs - Recept adatok szerkesztése, mentés és vissza gombok
+ma01.ejs - Recept lista, hozzáadás, szerkesztés, törlés és engedélyezés gombok
+ma01Edit.ejs - Recept adatok szerkesztése, mentés és vissza gombok
+ma01Details.ejs - Recept adatok megjelenítése, vissza gomb
+ma02.ejs - Recept lista, hozzáadás, szerkesztés, törlés és engedélyezés gombok
+ma02Edit.ejs - Recept adatok szerkesztése, mentés és vissza gombok
+ma02Details.ejs - Recept adatok megjelenítése, vissza gomb
+login.ejs - Bejelentkezés form 
+
+# Middlewares
+
+renderMW - Adatok renderelése a sablonba
+
+middleware/auth
+	authMW - Ha a felhasználó be van jelentkezve next() hívás, egyébként átirányítás a /line oldalra
+	checkPswMW - Jelszó ellenőrzése, egyezés esetén felhasználónak session létrehozása és átitányítás a /line oldalra, ha a jelszó hibás hibaüzenet küldés
+	logoutMW - megszünteti a session-t a felhasználó számára
+
+middleware/line/
+	getLineListMW - Lekérdezi az összes line receptet az adatbázisból
+	getLineMW - Lekérdezi az adatbásiból a line receptet a :lineId alapján
+	saveLineMW - A POST paraméterek alapján az adatok frissítése vagy létrehozása az adatbázisban, majd átirányítás a /line oldalra
+	deleteLineMW - Line recept törlése az adatbázisból, majd átirányítás a /line oldalra
+	enableLineMW - Line recept enabled bit bebillentése
+
+middleware/ma01/
+	getMa01ListMW - Lekérdezi az összes MA01 receptet az adatbázisból
+	getMa01MW - Lekérdezi az adatbásiból a MA01 receptet a :ma01Id alapján
+	saveMa01MW - A POST paraméterek alapján az adatok frissítése vagy létrehozása az adatbázisban, majd átirányítás a /ma01 oldalra
+	deleteMa01MW - MA01 recept törlése az adatbázisból, majd átirányítás a /ma01 oldalra
+	enableMa01MW - MA01 recept enabled bit bebillentése
+
+middleware/ma02/
+	getMa02ListMW - Lekérdezi az összes MA02 receptet az adatbázisból
+	getMa02MW - Lekérdezi az adatbásiból az MA02 receptet a :ma02Id alapján
+	saveMa02MW - A POST paraméterek alapján az adatok frissítése vagy létrehozása az adatbázisban, majd átirányítás a /ma02 oldalra
+	deleteMa02MW - MA02 recept törlése az adatbázisból, majd átirányítás a /ma02 oldalra
+	enableMa02MW - MA02 recept enabled bit bebillentése
+
+# Routing
+
+GET, POST /
+	redirect('/line')
+
+GET, POST /login
+	checkPswMW
+	renderMW(login.ejs)
+
+GET /logout	
+	logoutMW
+
+GET /line
+	getLineListMW
+	renderMW(line.ejs)
+
+GET, POST /line/new
+	authMW
+	getMa01ListMW
+	getMa02ListMW
+	saveLineMW
+	renderMW(lineEdit.ejs )
+
+GET, POST /line/edit/:lineId
+	authMW
+	getMa01ListMW
+	getMa02ListMW
+	getLineMW
+	saveLineMW
+	renderMW(lineEdit.ejs )
+
+GET /line/delete/:lineId
+	authMW
+	getLineMW
+	deleteLineMW
+
+GET /line/enable/:lineId
+	authMW
+	getLineMW
+	enableLineMW
+	saveLineMw
+	renderMW(line.ejs)
+
+GET /ma01
+	getMa01ListMW
+	renderMW(ma01.ejs)
+
+GET /ma01/:ma01Id
+	authMW
+	getMa01MW
+	renderMW(ma01Details.ejs)
+
+GET, POST /ma01/new
+	authMW
+	saveMa01MW
+	renderMW(ma01Edit.ejs (new))
+
+GET, POST /ma01/edit/:ma01Id
+	authMW
+	getMa01MW
+	saveMa01MW
+	renderMW(ma01Edit.ejs)
+
+GET /ma01/delete/:ma01Id
+	authMW
+	getMa01MW
+	deleteMa01MW
+
+GET /ma01/enable/:ma01Id
+	authMW
+	getMa01MW
+	enableMa01MW
+	saveMa01MW
+	renderMW(ma01.ejs)
+
+GET /ma02
+	getMa02ListMW
+	renderMW(ma02.ejs)
+
+GET /ma02/:ma02Id
+	authMW
+	getMa02MW
+	renderMW(ma02Details.ejs)
+
+GET, POST /ma02/new
+	authMW
+	saveMa02MW
+	renderMW(ma02Edit.ejs)
+
+GET, POST /ma02/edit/:ma02Id
+	authMW
+	getMa02MW
+	saveMa02MW
+	renderMW(ma02Edit.ejs)
+
+GET /ma02/delete/:ma02Id
+	authMW
+	getMa02MW
+	deleteMa02MW
+
+GET /ma02/enable/:ma02Id
+	authMW
+	getMa02MW
+	enableMa02MW
+	saveMa02MW
+	renderMW(ma02.ejs)

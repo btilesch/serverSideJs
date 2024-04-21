@@ -5,12 +5,12 @@
     <input
             class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             id="recipe-name"
-            name="recipeName"
+            name="name"
             placeholder="Recipe name"
             required
             type="text"
             <%= disabled === true ? 'disabled' : '' %>
-            value="<%= (typeof recipe === 'undefined') ? '' : recipe.name %>"/>
+            value="<%= (typeof ma01 === 'undefined') ? '' : ma01.name %>"/>
     <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">&nbsp</span>
 </div>
 
@@ -19,16 +19,15 @@
         Temperature lower bound
     </label>
 
-
     <input
             class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             id="recipe-min-temp"
-            name="recipeMinTemp"
+            name="tempLow"
             placeholder="0"
             required
             type="number"
             <%= disabled === true ? 'disabled' : '' %>
-            value="<%= (typeof recipe === 'undefined') ? '' : recipe.minTemp %>"/>
+            value="<%= (typeof ma01 === 'undefined') ? '' : ma01.tempLow %>"/>
     <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">°C</span>
 </div>
 
@@ -39,12 +38,12 @@
     <input
             class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             id="recipe-max-temp"
-            name="recipeMaxTemp"
+            name="tempHigh"
             placeholder="0"
             required
             type="number"
             <%= disabled === true ? 'disabled' : '' %>
-            value="<%= (typeof recipe === 'undefined') ? '' : recipe.maxTemp %>"/>
+            value="<%= (typeof ma01 === 'undefined') ? '' : ma01.tempHigh %>"/>
     <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">°C</span>
 </div>
 
@@ -55,11 +54,11 @@
     <input
             class="w-3/6 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             id="recipe-max-pwr"
-            name="recipeMaxPwr"
+            name="powerMax"
             placeholder="100"
             required
             type="number"
             <%= disabled === true ? 'disabled' : '' %>
-            value="<%= (typeof recipe === 'undefined') ? '' : recipe.maxPwr %>"/>
+            value="<%= (typeof ma01 === 'undefined') ? '' : ma01.powerMax %>"/>
     <span class="w-1/6 text-left block mb-2 text-md font-medium dark:text-gray-300">%</span>
 </div>

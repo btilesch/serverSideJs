@@ -3,6 +3,6 @@
  */
 module.exports = function (objectrepository, viewName) {
   return function (req, res) {
-    req.res.render(viewName, res.tpl);
+    req.res.render(viewName, res.locals);
   };
 };

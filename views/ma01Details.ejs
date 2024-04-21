@@ -5,9 +5,7 @@
     <%- include("./partials/topnav") -%>
 
     <div class="pt-40 flex flex-col items-center space-y-4 relative left-1/4 right-1/4 w-1/2">
-      <h1 class="mb-20 dark:text-gray-300 text-lg text-center justify-self-center w-1/2 border-b">
-        <% if (typeof recipe === 'undefined') { %> Create <% }else{ %> Modify <% } %> recipe
-      </h1>
+      <h1 class="mb-20 dark:text-gray-300 text-lg text-center justify-self-center w-1/2 border-b">Recipe details</h1>
       <%- include("./partials/ma01Params", {disabled: true}) -%>
 
       <div class="flex space-x-4 items-center w-full">
@@ -15,7 +13,8 @@
         <div class="w-2/3 flex space-x-4 items-center justify-items-start">
           <button
             class="dark:text-gray-300 border-2 border-indigo-600 hover:bg-indigo-700 hover:text-white bg-transparent focus:ring-2 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer"
-            onclick="window.location = '/ma01'">
+            onclick="window.location = '/ma01'"
+            type="button">
             Back
           </button>
         </div>

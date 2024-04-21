@@ -5,7 +5,7 @@ const MA01 = db.model('MA01', {
   name: String,
   enabled: Boolean,
   creationDate: Date,
-  userName: String,
+  username: String,
   tempLow: Number,
   tempHigh: Number,
   powerMax: Number,

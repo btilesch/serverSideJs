@@ -5,7 +5,7 @@ const Line = db.model('Line', {
   name: String,
   enabled: Boolean,
   creationDate: Date,
-  userName: String,
+  username: String,
   _ma01: {
     type: Schema.Types.ObjectId,
     ref: 'MA01',

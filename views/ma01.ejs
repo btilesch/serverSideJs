@@ -20,33 +20,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
+                <%ma01List.forEach(ma01Recipe => { %>
+                <tr id="<%= ma01Recipe._id %>"
                   class="hover:bg-indigo-700 hover:bg-opacity-60 bg-opacity-60 border-b dark:border-neutral-600 cursor-pointer">
                   <td class="p-2">
-                    <a href="/ma01/details" class="hover:underline-offset-auto hover:underline">MA01_01</a>
+                    <a href="/ma01/<%= ma01Recipe._id %>" class="hover:underline-offset-auto hover:underline"
+                      ><%= ma01Recipe.name %></a
+                    >
                   </td>
-                  <td class="p-2"><input type="checkbox" disabled="disabled" class="rounded" checked /></td>
-                  <td class="p-2">2024.03.07, 14:45:33</td>
-                  <td class="p-2">Steve_Dummy</td>
+                  <td class="p-2"><input type="checkbox" disabled="disabled" class="rounded" <%= ma01Recipe.enabled ? 'checked' : '' %> /></td>
+                  <td class="p-2"><%= ma01Recipe.creationDate.toLocaleString('hu') %></td>
+                  <td class="p-2"><%= ma01Recipe.username %></td>
                 </tr>
-                <tr
-                  class="hover:bg-indigo-700 hover:bg-opacity-60 bg-opacity-60 border-b dark:border-neutral-600 cursor-pointer">
-                  <td class="p-2">
-                    <a href="/ma01/details" class="hover:underline-offset-auto hover:underline">MA01_02</a>
-                  </td>
-                  <td class="p-2"><input type="checkbox" disabled="disabled" class="rounded" checked /></td>
-                  <td class="p-2">2024.03.07, 14:45:33</td>
-                  <td class="p-2">Steve_Dummy</td>
-                </tr>
-                <tr
-                  class="hover:bg-indigo-700 hover:bg-opacity-60 bg-opacity-60 border-b dark:border-neutral-600 cursor-pointer">
-                  <td class="p-2">
-                    <a href="/ma01/details" class="hover:underline-offset-auto hover:underline">MA01_03</a>
-                  </td>
-                  <td class="p-2"><input type="checkbox" disabled="disabled" class="rounded" /></td>
-                  <td class="p-2">2024.03.07, 14:45:33</td>
-                  <td class="p-2">Steve_Dummy</td>
-                </tr>
+                <%});%>
               </tbody>
             </table>
           </div>

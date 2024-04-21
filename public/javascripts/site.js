@@ -10,7 +10,13 @@ function bindRecipeActions() {
     window.location = '/' + getMachineName() + '/new';
   });
   document.getElementById('recipe-action-edit').addEventListener('click', () => {
-    window.location = '/' + getMachineName() + '/edit';
+    window.location = '/' + getMachineName() + '/edit/' + getSelectedRowId();
+  });
+  document.getElementById('recipe-action-delete').addEventListener('click', () => {
+    window.location = '/' + getMachineName() + '/delete/' + getSelectedRowId();
+  });
+  document.getElementById('recipe-action-enable').addEventListener('click', () => {
+    window.location = '/' + getMachineName() + '/enable/' + getSelectedRowId();
   });
 }
 
@@ -28,6 +34,10 @@ function setActionButtonState(targetState) {
     document.getElementById('recipe-action-edit').classList.add('hidden');
     document.getElementById('recipe-action-enable').classList.add('hidden');
   }
+}
+
+function getSelectedRowId() {
+  return document.querySelector('tr[aria-selected="true"]').id;
 }
 
 function handleTableRowClicked() {

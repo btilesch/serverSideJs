@@ -5,24 +5,25 @@
     <input
             class="w-3/4 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             id="recipe-name"
-            name="recipeName"
+            name="name"
             placeholder="Recipe name"
             required
             type="text"
             <%= disabled === true ? 'disabled' : '' %>
-            value="<%= (typeof recipe === 'undefined') ? '' : recipe.name %>"/>
+            value="<%= (typeof line === 'undefined') ? '' : line.name %>"/>
 </div>
 <div class="flex space-x-4 items-center w-full">
     <label class="w-1/4 text-left block mb-2 text-md font-medium dark:text-gray-300" for="recipe-ma01"> MA01 </label>
     <select
             id="recipe-ma01"
-            name="recipeMa01"
+            name="_ma01"
             class="w-3/4 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             required
             <%= disabled === true ? 'disabled' : '' %>>
         <option value="" selected disabled>Select</option>
-        <option value="1">MA01_recipe_02</option>
-        <option value="4">MA01_recipe_11</option>
+        <% ma01List.forEach(ma01Recipe => { %>
+            <option value="<%= ma01Recipe._id%>"><%= ma01Recipe.name%></option>
+        <% });%>
     </select>
 </div>
 <div class="flex space-x-4 items-center w-full">
@@ -31,15 +32,13 @@
     </label>
     <select
             id="recipe-ma02"
-            name="recipeMa02"
+            name="_ma02"
             class="w-3/4 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             required
             <%= disabled === true ? 'disabled' : '' %>>
         <option value="" selected disabled>Select</option>
-        <option value="11">MA02_recipe_02</option>
-        <option value="45">MA01_recipe_43</option>
-        <option value="65">MA01_recipe_12</option>
-        <option value="22">MA01_recipe_03</option>
-        <option value="26">MA01_recipe_26</option>
+        <% ma02List.forEach(ma02Recipe => { %>
+            <option value="<%= ma02Recipe._id%>"><%= ma02Recipe.name%></option>
+        <% });%>
     </select>
 </div>

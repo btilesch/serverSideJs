@@ -46,11 +46,20 @@
           Theme
         </button>
 
+        <% if(typeof user !== 'undefined') { %>
+        <span class="text-md px-3 py-5 font-semibold dark:text-indigo-300"><%= user%></span>
+        <a
+          class="rounded text-md px-3 py-5 font-semibold hover:text-indigo-700 dark:text-gray-300 dark:hover:text-indigo-700"
+          href="/logout">
+          Logout
+        </a>
+        <% } else {%>
         <a
           class="rounded text-md px-3 py-5 font-semibold hover:text-indigo-700 dark:text-gray-300 dark:hover:text-indigo-700"
           href="/login">
           Login
         </a>
+        <% } %>
       </div>
     </div>
   </div>

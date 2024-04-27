@@ -22,7 +22,7 @@ module.exports = function (objectrepository) {
     res.locals.line.name = req.body.name;
     res.locals.line.enabled = req.body.enabled ?? false;
     res.locals.line.creationDate = Date.now();
-    res.locals.line.username = 'Unknown'; //TODO: read from session
+    res.locals.line.username = req.session.user ?? '';
     res.locals.line._ma01 = req.body._ma01;
     res.locals.line._ma02 = req.body._ma02;
 

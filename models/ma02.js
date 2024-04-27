@@ -1,4 +1,3 @@
-const Schema = require('mongoose').Schema;
 const db = require('../db.config.js');
 
 const MA02 = db.model('MA02', {

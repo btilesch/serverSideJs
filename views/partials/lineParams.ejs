@@ -20,10 +20,14 @@
             class="w-3/4 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             required
             <%= disabled === true ? 'disabled' : '' %>>
-        <option value="" selected disabled>Select</option>
+        <option value="" <%= (typeof ma01Id !== 'undefined') ? '' : 'selected' %> disabled>Select</option>
         <% ma01List.forEach(ma01Recipe => { %>
-            <option value="<%= ma01Recipe._id%>"><%= ma01Recipe.name%></option>
-        <% });%>
+            <option
+                    value="<%= ma01Recipe._id %>"
+                    <%= (typeof ma01Id !== 'undefined') && (ma01Recipe._id.toString() === ma01Id.toString()) ? 'selected' : '' %> >
+                <%= ma01Recipe.name %>
+            </option>
+        <% }); %>
     </select>
 </div>
 <div class="flex space-x-4 items-center w-full">
@@ -36,9 +40,12 @@
             class="w-3/4 rounded-lg dark:bg-gray-300 focus:border-indigo-700 focus:ring-indigo-700"
             required
             <%= disabled === true ? 'disabled' : '' %>>
-        <option value="" selected disabled>Select</option>
+        <option value="" <%= (typeof ma02Id !== 'undefined') ? '' : 'selected' %> disabled>Select</option>
         <% ma02List.forEach(ma02Recipe => { %>
-            <option value="<%= ma02Recipe._id%>"><%= ma02Recipe.name%></option>
-        <% });%>
+            <option
+                    value="<%= ma02Recipe._id %>"
+                    <%= (typeof ma02Id !== 'undefined') && (ma02Recipe._id.toString() === ma02Id.toString()) ? 'selected' : '' %>>
+                <%= ma02Recipe.name %></option>
+        <% }); %>
     </select>
 </div>

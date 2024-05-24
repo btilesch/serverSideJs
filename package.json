@@ -8,7 +8,7 @@
     "build:css": "npx tailwindcss-cli -i ./public/stylesheets/tailwind.css -o ./public/stylesheets/style.css",
     "start": "node ./bin/www",
     "startdev": "nodemon ./bin/www",
-    "test": "mocha --timeout 15000 tests "
+    "test": "mocha tests "
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

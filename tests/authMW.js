@@ -12,16 +12,18 @@ describe('getMA01 middleware', () => {
     const resMock = {
       redirect: (to) => {
         expect(to).to.be.eql('/login');
-        done();
       },
     };
 
+    let nextCalled = false;
     const middleware = authMW({});
     middleware(reqMock, resMock, (err) => {
-      expect(true, 'Should not call next()').to.be.eql(false);
+      nextCalled = true;
       expect(err).to.be.undefined;
-      done();
     });
+
+    expect(nextCalled, 'Next called').to.be.false;
+    done();
   });
 
   it('should redirect to /login if user is not logged in', function (done) {
@@ -34,16 +36,18 @@ describe('getMA01 middleware', () => {
     const resMock = {
       redirect: (to) => {
         expect(to).to.be.eql('/login');
-        done();
       },
     };
 
+    let nextCalled = false;
     const middleware = authMW({});
     middleware(reqMock, resMock, (err) => {
-      expect(true, 'Next not called').to.be.eql(false);
+      nextCalled = true;
       expect(err).to.be.undefined;
-      done();
     });
+
+    expect(nextCalled, 'Next called').to.be.false;
+    done();
   });
 
   it('should call next, if user is logged in', function (done) {
@@ -60,11 +64,14 @@ describe('getMA01 middleware', () => {
       },
     };
 
+    let nextCalled = false;
     const middleware = authMW({});
     middleware(reqMock, resMock, (err) => {
+      nextCalled = true;
       expect(err).to.be.undefined;
     });
 
+    expect(nextCalled, 'Next called').to.be.true;
     expect(redirectCalled, 'Redirect called').to.be.false;
     done();
   });

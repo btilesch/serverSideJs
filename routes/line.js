@@ -49,7 +49,7 @@ module.exports = function (app) {
 
   app.use('/line', getLineListMW(objectRepository), renderMW(objectRepository, 'line'));
 
-  //app.use('/', function (req, res, next) {
-  //res.redirect('/line');
-  //});
+  app.get('/', function (req, res, next) {
+    res.redirect('/line');
+  });
 };

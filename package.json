@@ -2,11 +2,13 @@
   "name": "serversidejs",
   "version": "0.0.0",
   "private": true,
+  "type": "commonjs",
   "scripts": {
     "build": "npm run build:css",
     "build:css": "npx tailwindcss-cli -i ./public/stylesheets/tailwind.css -o ./public/stylesheets/style.css",
     "start": "node ./bin/www",
-    "startdev": "nodemon ./bin/www"
+    "startdev": "nodemon ./bin/www",
+    "test": "mocha --timeout 15000 tests "
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -22,10 +24,14 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "@thoughtbot/tailwindcss-aria-attributes": "^0.2.0",
+    "chai": "4.4.1",
+    "mocha": "^10.4.0",
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5",
     "prettier-plugin-ejs": "^1.0.3",
     "prettier-plugin-tailwindcss": "^0.5.11",
+    "sinon": "^18.0.0",
+    "sinon-chai": "^3.7.0",
     "tailwindcss": "^3.4.1"
   }
 }
